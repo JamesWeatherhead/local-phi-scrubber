@@ -6,7 +6,7 @@ Chrome extension that removes Protected Health Information (PHI) from clinical t
 
 ## Demo
 
-https://github.com/user-attachments/assets/561f72a4-6314-41e6-a5ef-27681bb148d0
+https://github.com/user-attachments/assets/41ecc0f7-7d30-4de9-b03e-c77408854340
 
 ## How It Works
 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>PHI Scrubber</h1>
+      <p class="subtitle">Automated HIPAA-Compliant PHI Redaction</p>
+    </div>
+
+    <div class="warning-box">
+      <strong>WARNING: LLMs are unreliable for sensitive tasks.</strong> This tool:
+      <ul>
+        <li>Uses AI that is fundamentally non-deterministic</li>
+        <li>May miss PHI entirely or over-redact</li>
+        <li>Produces different outputs on identical inputs</li>
+        <li>Cannot be trusted as sole protection for clinical data</li>
+      </ul>
+      <strong>MANDATORY: Manually verify every output before submission.</strong>
+      <br><br>
+      <strong>Typically attempts to identify:</strong>
+      <ul>
+        <li>Names, dates of birth, ages</li>
+        <li>Medical record numbers</li>
+        <li>Geographic locations</li>
+        <li>Dates (except years)</li>
+        <li>Contact information</li>
+      </ul>
+    </div>
+
+    <div class="status" id="status">
+      <span class="status-indicator" id="statusIndicator">●</span>
+      <span id="statusText">Checking AI availability...</span>
+    </div>
+
+    <div class="input-section">
+      <label for="queryInput">Clinical Query:</label>
+      <textarea 
+        id="queryInput" 
+        placeholder="Example: Patient John Doe, 45yo male with chest pain since 3/15/2024..."
+        rows="6"
+      ></textarea>
+    </div>
+
+    <div class="button-group">
+      <button id="scrubBtn" class="primary-btn" disabled>
+        <span class="btn-text">Scrub PHI</span>
+        <span class="loader" style="display: none;"></span>
+      </button>
+      <button id="insertBtn" class="secondary-btn" style="display: none;">
+        Insert into Chat
+      </button>
+      <button id="copyBtn" class="secondary-btn" style="display: none;">
+        Copy to Clipboard
+      </button>
+    </div>
+
+    <div class="result-section" id="resultSection" style="display: none;">
+      <label>Scrubbed Query:</label>
+      <div class="result-box" id="resultBox"></div>
+      <div class="diff-info" id="diffInfo"></div>
+    </div>
+
+    <div class="error-box" id="errorBox" style="display: none;"></div>
+
+    <div class="footer">
+      <details>
+        <summary>How it works</summary>
+        <p>This extension uses a local LLM (Ollama Phi-3) to detect PHI patterns. Processing happens entirely on your device with zero data transmission. However, LLMs are non-deterministic and cannot guarantee complete accuracy. Output varies between runs and may miss sensitive information. This tool is a helper, not a safeguard. You are responsible for verifying all outputs.</p>
+      </details>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

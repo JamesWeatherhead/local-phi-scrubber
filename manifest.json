@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Clinical PHI Scrubber",
+  "version": "1.0.0",
+  "description": "Automated PHI removal using local Ollama for HIPAA-compliant queries",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": [
+    "http://localhost:11434/*",
+    "https://chat.openai.com/*",
+    "https://chatgpt.com/*",
+    "https://www.perplexity.ai/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [{
+    "matches": [
+      "https://chat.openai.com/*",
+      "https://chatgpt.com/*",
+      "https://www.perplexity.ai/*"
+    ],
+    "js": ["content.js"],
+    "run_at": "document_idle"
+  }],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

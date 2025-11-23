@@ -109,7 +109,7 @@ You should see `phi3:mini` in the list of available models.
 1. Open Chrome and navigate to **chrome://extensions**
 2. Enable **Developer mode** (toggle in top right)
 3. Click **Load unpacked**
-4. Navigate to the `phi-scrubber` folder and select it
+4. Navigate to the `local-phi-scrubber` folder and select it
 5. The extension should appear in your extensions list and toolbar
 
 ### Step 4: Verify Ollama Connection
@@ -145,7 +145,6 @@ You should see `phi3:mini` in the list of available models.
    - Prompt: Complete HIPAA de-identification instructions
    - Query: User's clinical text
    - Temperature: 0 (for consistency)
-   - Seed: 42 (attempts determinism, though LLMs remain probabilistic)
 4. **Local Processing** → Ollama runs Phi-3 Mini on user's hardware
 5. **Response** → De-identified text returned
 6. **Analysis** → Count and display identified PHI tokens

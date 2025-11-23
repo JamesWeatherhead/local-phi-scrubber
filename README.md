@@ -1,6 +1,6 @@
 # Local PHI Scrubber Chrome Extension
 
-Chrome extension that removes Protected Health Information (PHI) from clinical text using local processing. All data stays on your machine.
+Chrome extension that removes Protected Health Information (PHI) from clinical text using a locally hosted Microsoft Phi-3 Mini 128K large language model served via Ollama. All data stays on your machine.
 
 **IMPORTANT CAVEAT:** Language models are non-deterministic and may miss identifiers or over-redact. Manual review of all output is mandatory before use.
 
